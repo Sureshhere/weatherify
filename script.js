@@ -1,40 +1,46 @@
-const options = {
-  method: 'GET',
-  headers: {
-      'X-RapidAPI-Key': '39effca671msh3c2e4af0c4d2647p1776c6jsnef7b6123cd59',
-      'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
-  }
+let weather = {
+    "apikey": '673d0c9312adf317d04cd672ae9a9b3d',
+    fetchWeather : function (city) {
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
+        + city 
+        + "&units=metric&appid=" 
+        + this.apikey)
+        .then((Response) => Response.json())
+        .then((data) => this.displayWeather(data));
+    },
+
+    displayWeather: function(data) {
+        const { name } = data;
+        const { icon, description } = data.weather[0];
+        const { temp, humidity } = data.main;
+        const { speed } = data.wind;
+        document.querySelector(".city").innerText =  name;
+        document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
+        document.querySelector(".description").innerText = description;
+        document.querySelector(".temp").innerText = temp + "°C";
+        document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
+        document.querySelector(".wind").innerText = "Wind speed: " + speed + " km/h";
+        document.querySelector(".weather").classList.remove("loading");
+    },
+
+    search : function() {
+        this.fetchWeather(document.querySelector(".searchbar_2").value);
+    }
 };
 
+document.querySelector(".search_2 button").addEventListener("click", function() {
+    weather.search();
+});
 
-const getWeather = (city)=>{    
-  cityName.innerHTML = city
-  fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city, options)
-  .then(response => response.json())
-  .then(response => {
-      console.log(response)
-      temp2.innerHTML = response.temp
-      feels_like.innerHTML = response.feels_like
-      humidity.innerHTML = response.humidity
-      humidity2.innerHTML = response.humidity
-      min_temp.innerHTML = response.min_temp
-      max_temp.innerHTML = response.max_temp
-      wind_speed.innerHTML = response.wind_speed
-      wind_speed2.innerHTML = response.wind_speed
-      wind_degrees.innerHTML = response.wind_degrees
-  })
-  .catch(err => console.error(err));
-}
+document.querySelector(".searchbar_2").addEventListener("keyup", function(event){
+    if(event.key == "Enter"){
+        weather.search();
+    }
+});
+
+weather.fetchWeather("hyderabad");
 
 
-submit.addEventListener("click",(e)=>{
-  e.preventDefault()
-  getWeather(city.value)
-  
-})
-
-
-getWeather("Hyderabad")
 
 
 
@@ -43,7 +49,7 @@ getWeather("Hyderabad")
 
 var Snow = {
     el: "#snow", 
-    density: 10000, // higher = fewer bits
+    density: 12000, // higher = fewer bits
     maxHSpeed: 5, // How much do you want them to move horizontally
     minFallSpeed: 2,
     canvas: null,
