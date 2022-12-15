@@ -430,6 +430,16 @@ canvas {
     input.searchbar_2 {
         font-size: 16px;
     }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .weather-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .posterSection{
         width: 100%;
     }
