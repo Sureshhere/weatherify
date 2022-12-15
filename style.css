@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     margin: 0;
     background-color: #000;
@@ -11,15 +12,22 @@ body {
 
 .card_2 {
     background: #da22ff;
-    /* background: -webkit-linear-gradient(to top, #333034, #4b484e); */
-    background: linear-gradient(to top,#000000a8, rgb(32 32 32 / 71%));
+    background: linear-gradient(to top, #2f2d2da8, rgba(63, 59, 59, 0.71));
     color: whitesmoke;
     padding: 2em;
     border-radius: 30px;
-    /* width: 100%; */
-    max-width: 420px;
     margin: 1em;
+    text-align: left;
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: middle;
 }
+
+.poster{
+    width: 100%;
+    height: auto;
+}
+
 
 .search_2 {
     display: flex;
@@ -129,7 +137,7 @@ nav {
 }
 
 .nav-link {
-    color: #ffffff !important;
+    color: #d2d5d5 !important;
     font-size: 20px;
     font-weight: 600;
 }
@@ -363,9 +371,6 @@ canvas {
     border-right: .15em solid #C147E9;
     white-space: nowrap;
     margin: 0 auto;
-    /* Gives that scrolling effect as the typing happens */
-    /* letter-spacing: .15em; */
-    /* Adjust as needed */
     animation:
         typing 4.5s steps(30, end),
         blink-caret .5s step-end infinite;
@@ -397,7 +402,7 @@ canvas {
 
 
 /* MEDIA QUERIES */
-@media (max-width:425px) {
+@media (max-width:480px) {
 
     .searchbar {
         width: 60%;
@@ -421,8 +426,28 @@ canvas {
     .text-center>p {
         font-size: 18px;
     }
-    
 
+    input.searchbar_2 {
+        font-size: 16px;
+    }
+    .posterSection{
+        width: 100%;
+    }
 
+}
 
+@media (min-width:481px) and (max-width:820px) {
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .weather-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .posterSection{
+        width: 100%;
+    }
 }
