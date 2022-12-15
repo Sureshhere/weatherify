@@ -1,1 +1,1 @@
-<center><h1>Preview</h1></center>
+<h1>Preview</h1>
