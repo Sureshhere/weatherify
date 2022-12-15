@@ -10,6 +10,7 @@ body {
     font-size: 120%;
 }
 
+
 .card_2 {
     background: #da22ff;
     background: linear-gradient(to top, #2f2d2da8, rgba(63, 59, 59, 0.71));
@@ -429,6 +430,16 @@ canvas {
 
     input.searchbar_2 {
         font-size: 16px;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .weather-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .posterSection{
         width: 100%;
