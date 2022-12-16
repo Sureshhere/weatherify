@@ -35,7 +35,7 @@
                         <a class="nav-link" href="#">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">News</a>
+                        <a class="nav-link" href="#news">News</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link nav-drop" href="#" role="button" data-bs-toggle="dropdown"
@@ -76,41 +76,144 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col weather-card">
-                <div id="gotoweather" class="card_2">
-                    <div class="search_2">
-                        <input type="text" class="searchbar_2" placeholder="search city">
-                        <button class="searchBTN"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                viewBox="0 0 1024 1024" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
-                                </path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="weather loading">
-                        <h2 class="city"></h2>
-                        <h1 class="temp"></h1>
-                        <div class="flex">
-                            <img width="70" src="https://openweathermap.org/img/wn/02n.png" class="icon"></img>
-                            <div class="description">Cloudy</div>
+    <main>
+
+        <div class="container">
+            <div class="row">
+                <div class="col weather-card">
+                    <div id="gotoweather" class="card_2">
+                        <div class="search_2">
+                            <input type="text" class="searchbar_2" placeholder="search city">
+                            <button class="searchBTN"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                    viewBox="0 0 1024 1024" height="1.5em" width="1.5em"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+                                    </path>
+                                </svg>
+                            </button>
                         </div>
-                        <br>
-                        <div class="humidity"></div>
-                        <div class="wind"></div>
+                        <div class="weather loading">
+                            <h2 class="city"></h2>
+                            <h1 class="temp"></h1>
+                            <div class="flex">
+                                <img width="70" src="https://openweathermap.org/img/wn/02n.png" class="icon"></img>
+                                <div class="description">Cloudy</div>
+                            </div>
+                            <br>
+                            <div class="humidity"></div>
+                            <div class="wind"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 posterSection">
+
+                    <img class="poster" src="/weatherSVG.svg" alt="forecast svg">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <article>
+        <main>
+
+            <section  id="news" class="text-center container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+                        <h1 class="fw-light" style="color: white;">Weather News & Analysis</h1>
+                    </div>
+                </div>
+            </section>
+
+            <div class="album">
+                <div class="container">
+
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        <div class="col">
+                            <div class="card shadow-sm">
+
+                                <img class="bd-placeholder-img card-img-top"
+                                    src="https://www.skymetweather.com/content/wp-content/uploads/2020/01/Climate-Change.jpg"
+                                    alt="news images">
+
+                                <div class="card-body">
+                                    <h4 class="news-headline">9 OUT OF 10 GLOBAL RISKS OF THE DECADE RELATED TO CLIMATE
+                                        CHANGE, WARNS WORLD ECONOMIC FORUM</h4>
+                                    <p class="card-text">
+                                        This year too is not going to be any different and will continue seeing warmer
+                                        temperatures. Before the event, the WEF releases a detailed report of those
+                                        risks, and climate change this time is the biggest concern since the forum’s
+                                        launch in 2006.
+                                    </p>
+                                    <p>
+                                        <a target="_blank" class="btn btn-primary"
+                                            href="https://www.skymetweather.com/content/weather-news-and-analysis/mumbai-records-highest-maximum-in-the-country/"
+                                            role="button">
+                                            Read full article</a>
+                                    </p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img class="bd-placeholder-img card-img-top"
+                                    src="https://www.skymetweather.com/content/wp-content/uploads/2020/11/Typhoon-Goni.jpg"
+                                    alt="news images">
+
+                                <div class="card-body">
+                                    <h4 class="news-headline">SUPER TYPHOON GONI STRIKES THE PHILIPPINES</h4>
+
+                                    <p class="card-text">The super typhoon Goni battered the Philippines on Sunday, 01
+                                        November with winds in excess of 250 kmph. The eyewall clouds and the inner
+                                        rainbands dumped copious rains flooding the central region.
+                                        The international airport was closed and about 10 Lakh people were evacuated.
+                                        <br><br>
+                                    </p>
+                                    <p>
+                                        <a target="_blank" class="btn btn-primary"
+                                            href="https://www.skymetweather.com/content/weather-news-and-analysis/super-typhoon-goni-strikes-the-philippines-weakens-to-a-tropical-storm-heads-for-vietnam/"
+                                            role="button">
+                                            Read full article</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img class="bd-placeholder-img card-img-top"
+                                    src="https://www.skymetweather.com/content/wp-content/uploads/2020/02/Heat-wave-in-summers-website.jpg"
+                                    alt="news images">
+
+                                <div class="card-body">
+                                    <h4 class="news-headline">HEAT WAVE TO GET WORSE IN THE COMING DECADES</h4>
+
+                                    <p class="card-text">
+                                        A recent study has found out that the human-caused climate change results in
+                                        extreme heat during summer days leading to dangerous consequences. When the sun
+                                        sets, temperatures cool down and day turns into night, the threat to human
+                                        health aggravates.
+                                        
+                                        <br><br>
+                                    </p>
+                                    <p>
+                                        <a target="_blank" class="btn btn-primary"
+                                            href="https://www.skymetweather.com/content/climate-change/9-out-of-10-global-risks-of-the-decade-related-to-climate-change-warns-world-economic-forum/"
+                                            role="button">
+                                            Read full article</a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <div class="col-8 posterSection">
-                
-                <img class="poster" src="/weatherSVG.svg" alt="">
-            </div>
-        </div>
-    </div>
 
-    
+        </main>
+    </article>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
