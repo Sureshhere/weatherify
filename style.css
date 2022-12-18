@@ -10,6 +10,17 @@ body {
     font-size: 120%;
 }
 
+
+::-moz-selection { 
+    color: #C147E9;
+    background: white;
+  }
+  
+  ::selection {
+    color: #C147E9;
+    background: white;
+  }
+
 ::-webkit-scrollbar {
     width: 12px;
 }
