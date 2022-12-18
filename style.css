@@ -431,6 +431,18 @@ canvas {
     word-spacing: -2px;
 }
 
+
+
+
+
+/* footer */
+.social>a{
+    margin: 10px;
+}
+
+
+
+
 /* MEDIA QUERIES */
 @media (max-width:480px) {
 
