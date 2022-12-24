@@ -462,7 +462,16 @@ canvas {
     width: 100%;
 }
 
+/* ----FAQ's---- */
 
+.accordion-button{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.accordion-body{
+    text-align: left;
+}
 
 
 
