@@ -86,6 +86,10 @@ input.searchbar_2 {
     width: calc(100% - 100px);
 }
 
+.searchbar_2{
+    caret-color: #C147E9;
+}
+
 .searchBTN {
     margin: 1em;
     border-radius: 50%;
