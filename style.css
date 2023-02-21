@@ -324,6 +324,7 @@ div::-webkit-scrollbar-thumb {
     background-color: #c559ea;
     color: white;
     border-radius: 50%;
+    border: none;
     padding: 8px;
 }
 
@@ -506,6 +507,11 @@ canvas {
 
 /* MEDIA QUERIES */
 @media (max-width:480px) {
+    .toTop{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
 
     .searchbar {
         width: 60%;
