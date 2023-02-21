@@ -20,10 +20,11 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>Weatherify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/2698/2698250.png" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar sticky-top  navbar-expand-lg" style="background-color: black;">
+    <nav class="navbar sticky-top  navbar-expand-lg" id="top" style="background-color: black;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Weatherify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -67,6 +68,15 @@
         </div>
     </nav>
 
+
+    <!-- goto top -->
+
+    <button onclick="toTop()" id="topBtn" class="toTop">
+        <i class="fa fa-chevron-up" style="font-size:28px"></i>           
+    </button>
+
+  
+    
 
     <canvas id="snow"></canvas>
     <div class="center">

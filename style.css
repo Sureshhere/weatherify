@@ -315,6 +315,23 @@ div::-webkit-scrollbar-thumb {
 
 /* -------------------------------   */
 
+.toTop{
+    z-index: 99;
+    position: fixed;
+    bottom: 30px;
+    display: none;
+    right: 30px;
+    background-color: #c559ea;
+    color: white;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.toTop:hover{
+    background-color: #b217e6;
+    transition: .3s ease;
+}
+
 .center {
     position: absolute;
     top: 0;
