@@ -38,7 +38,7 @@ document.querySelector(".searchbar_2").addEventListener("keyup", function (event
   }
 });
 
-weather.fetchWeather("hyderabad");
+weather.fetchWeather("delhi");
 
 
 
