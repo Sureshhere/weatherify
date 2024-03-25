@@ -38,7 +38,7 @@ document.querySelector(".searchbar_2").addEventListener("keyup", function (event
   }
 });
 
-weather.fetchWeather("hyderabad");
+weather.fetchWeather("delhi");
 
 
 
@@ -135,18 +135,3 @@ function toTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-
-// --------------
-
-import { Analytics } from '@vercel/analytics/react';
- 
-function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <Component {...pageProps} />
-      <Analytics />
-    </>
-  );
-}
- 
-export default MyApp;
