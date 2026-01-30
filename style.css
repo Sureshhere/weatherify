@@ -1137,13 +1137,28 @@ body {
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
+
+html,
+body {
+    overflow-x: hidden;
+}
+
 @media (max-width: 1024px) {
     .weather-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
     }
 
-    .weather-illustration {
-        order: -1;
+    .weather-card {
+        max-width: 100%;
+    }
+
+    .weather-extra-panel {
+        width: 100%;
+    }
+
+    .extra-details-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .footer-content {
@@ -1154,6 +1169,15 @@ body {
 @media (max-width: 768px) {
     :root {
         --section-padding: 60px 0;
+        --container-padding: 0 16px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
     }
 
     .hero-buttons {
@@ -1168,8 +1192,48 @@ body {
         justify-content: center;
     }
 
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .section-title {
+        font-size: 28px;
+    }
+
+    .weather-grid {
+        gap: 20px;
+    }
+
+    .weather-card {
+        padding: 20px;
+    }
+
+    .weather-extra-panel {
+        padding: 20px;
+    }
+
+    .extra-details-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .extra-detail-card {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .extra-detail-card i {
+        font-size: 18px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .extra-detail-value {
+        font-size: 14px;
+    }
+
+    .extra-detail-label {
+        font-size: 10px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
     }
 
     .footer-content {
@@ -1183,7 +1247,7 @@ body {
     }
 
     .map-container iframe {
-        height: 350px;
+        height: 300px;
     }
 }
 
@@ -1193,16 +1257,40 @@ body {
         padding: 6px 12px !important;
     }
 
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
     .weather-card {
-        padding: 24px;
+        padding: 16px;
+    }
+
+    .weather-extra-panel {
+        padding: 16px;
+    }
+
+    .extra-details-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .extra-detail-card {
+        padding: 12px;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .extra-detail-info {
+        align-items: center;
     }
 
     .temperature {
         font-size: 48px;
-    }
-
-    .stat-number {
-        font-size: 36px;
     }
 
     .scroll-top {
@@ -1210,6 +1298,15 @@ body {
         right: 20px;
         width: 45px;
         height: 45px;
+    }
+
+    .search-input {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .search-btn {
+        padding: 12px 14px;
     }
 }
 
