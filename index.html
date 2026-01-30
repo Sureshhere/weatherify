@@ -6,39 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="title" content="Weatherify - Global Weather Forecast">
     <meta name="description"
-        content="Weatherify provides local and worldwide weather forecasts based on the most accurate weather forecasting technologies.">
+        content="Weatherify provides local and worldwide weather forecasts based on the most accurate weather forecasting technologies. Get real-time weather updates, interactive maps, and detailed forecasts.">
     <meta name="keywords"
-        content="Weather, Forecast, Climate, Temperature, Weather Report, Weather Radar, Daily Forecast">
+        content="Weather, Forecast, Climate, Temperature, Weather Report, Weather Radar, Daily Forecast, Live Weather, Weather App">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 
+    <title>Weatherify - Real-Time Global Weather Forecasts</title>
 
-    <title>Weatherify</title>
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Favicon -->
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/2698/2698250.png" type="image/x-icon">
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8099924172844689"
-     crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <nav class="navbar sticky-top  navbar-expand-lg" id="top" style="background-color: black;">
-        <div class="container-fluid">
+    <!-- Navigation -->
+    <nav class="navbar sticky-top navbar-expand-lg" id="top">
+        <div class="container">
             <a class="navbar-brand" href="#">Weatherify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -51,7 +52,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="weatherify-blog.html">Blogs</a>
+                        <a class="nav-link" href="#weather">Weather</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#news">News</a>
@@ -59,60 +60,64 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#map">Maps</a>
                     </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link nav-drop" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            More
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Delhi</a></li>
-                            <li><a class="dropdown-item" href="#">Hyderabad</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Banglore</a></li>
-                        </ul>
-                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Terms & Conditions</a>
+                        <a class="nav-link" href="#faq">FAQ</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-
-    <!-- goto top -->
-
-    <button onclick="toTop()" id="topBtn" class="toTop">
-        <i class="fa fa-chevron-up" style="font-size:25px"></i>
-    </button>
-
-
-
-
-    <canvas id="snow"></canvas>
-    <div class="center">
-        <div class="text-center">
-            <div class="typewriter">
-                <h1 class="hero-hdg">Welcome to Weatherify</h1>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Snowfall Canvas -->
+        <canvas id="snow"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Real-time weather updates</span>
             </div>
-            <p>"Weather is always unrehearsed"</p>
-
-            <a href="#gotoweather">
-                <button class="hero-btn">How's the weather today?</button>
+            <h1 class="hero-title">
+                Your Window to the <span class="gradient-text">World's Weather</span>
+            </h1>
+            <p class="hero-subtitle">
+                Get accurate weather forecasts, interactive radar maps, and real-time updates for any location
+                worldwide. Stay prepared for whatever nature brings.
+            </p>
+            <div class="hero-buttons">
+                <a href="#weather" class="btn-primary-gradient">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                    Check Weather
+                </a>
+                <a href="#map" class="btn-secondary-outline">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    View Maps
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#weather">
+                <i class="fa-solid fa-chevron-down"></i>
             </a>
         </div>
-    </div>
-    <main id="gotoweather">
+    </section>
+
+    <!-- Weather Section -->
+    <section id="weather" class="weather-section">
         <div class="container">
-            <div class="row">
-                <div class="col weather-card">
-                    <div class="card_2">
-                        <div class="search_2">
-                            <input type="text" class="searchbar_2" placeholder="search city">
-                            <button class="searchBTN"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                    viewBox="0 0 1024 1024" height="1.5em" width="1.5em"
+            <div class="section-header">
+                <span class="section-label">Current Conditions</span>
+                <h2 class="section-title">Check the Weather Anywhere</h2>
+                <p class="section-subtitle">Enter any city name to get instant weather information including
+                    temperature, humidity, and wind speed.</p>
+            </div>
+            <div class="weather-grid">
+                <div class="weather-card-wrapper">
+                    <div class="weather-card">
+                        <div class="search-box">
+                            <input type="text" class="search-input searchbar_2" placeholder="Search city...">
+                            <button class="search-btn searchBTN" aria-label="Search">
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
@@ -120,300 +125,316 @@
                                 </svg>
                             </button>
                         </div>
-                        <div class="weather loading">
-                            <h2 class="city"></h2>
-                            <h1 class="temp"></h1>
-                            <div class="flex">
-                                <img width="70" src="https://openweathermap.org/img/wn/02n.png" class="icon"></img>
-                                <div class="description">Cloudy</div>
+                        <div class="weather-display weather loading">
+                            <h2 class="city-name city"></h2>
+                            <div class="temperature temp"></div>
+                            <div class="weather-info">
+                                <img src="https://openweathermap.org/img/wn/02n.png" class="weather-icon icon"
+                                    alt="Weather icon">
+                                <span class="weather-description description">Cloudy</span>
                             </div>
-                            <br>
-                            <div class="humidity"></div>
-                            <div class="wind"></div>
+                            <div class="weather-details">
+                                <div class="weather-detail-item">
+                                    <i class="fa-solid fa-droplet"></i>
+                                    <div class="weather-detail-label">Humidity</div>
+                                    <div class="weather-detail-value humidity">--%</div>
+                                </div>
+                                <div class="weather-detail-item">
+                                    <i class="fa-solid fa-wind"></i>
+                                    <div class="weather-detail-label">Wind</div>
+                                    <div class="weather-detail-value wind">-- km/h</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-8 posterSection">
-                    <img class="poster" src="/weatherSVG.svg" alt="forecast svg">
+                <div class="weather-extra-panel">
+                    <h3 class="extra-panel-title">Weather Details</h3>
+                    <div class="extra-details-grid">
+                        <div class="extra-detail-card">
+                            <i class="fa-solid fa-temperature-half"></i>
+                            <div class="extra-detail-info">
+                                <span class="extra-detail-label">Feels Like</span>
+                                <span class="extra-detail-value feels-like">--°C</span>
+                            </div>
+                        </div>
+                        <div class="extra-detail-card">
+                            <i class="fa-solid fa-gauge-high"></i>
+                            <div class="extra-detail-info">
+                                <span class="extra-detail-label">Pressure</span>
+                                <span class="extra-detail-value pressure">-- hPa</span>
+                            </div>
+                        </div>
+                        <div class="extra-detail-card">
+                            <i class="fa-solid fa-eye"></i>
+                            <div class="extra-detail-info">
+                                <span class="extra-detail-label">Visibility</span>
+                                <span class="extra-detail-value visibility">-- km</span>
+                            </div>
+                        </div>
+                        <div class="extra-detail-card">
+                            <i class="fa-solid fa-cloud"></i>
+                            <div class="extra-detail-info">
+                                <span class="extra-detail-label">Cloudiness</span>
+                                <span class="extra-detail-value cloudiness">--%</span>
+                            </div>
+                        </div>
+                        <div class="extra-detail-card">
+                            <i class="fa-solid fa-sun"></i>
+                            <div class="extra-detail-info">
+                                <span class="extra-detail-label">Sunrise</span>
+                                <span class="extra-detail-value sunrise">--:--</span>
+                            </div>
+                        </div>
+                        <div class="extra-detail-card">
+                            <i class="fa-solid fa-moon"></i>
+                            <div class="extra-detail-info">
+                                <span class="extra-detail-label">Sunset</span>
+                                <span class="extra-detail-value sunset">--:--</span>
+                            </div>
+                        </div>
+                        <div class="extra-detail-card">
+                            <i class="fa-solid fa-lungs"></i>
+                            <div class="extra-detail-info">
+                                <span class="extra-detail-label">Air Quality</span>
+                                <span class="extra-detail-value aqi">--</span>
+                            </div>
+                        </div>
+                        <div class="extra-detail-card">
+                            <i class="fa-solid fa-smog"></i>
+                            <div class="extra-detail-info">
+                                <span class="extra-detail-label">PM2.5</span>
+                                <span class="extra-detail-value pm25">-- µg/m³</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
-    
-    
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8099924172844689"
-     crossorigin="anonymous"></script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8099924172844689"
-     crossorigin="anonymous"></script>
-<!-- Ad1 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8099924172844689"
-     data-ad-slot="5491050461"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-
-    <article>
-        <main>
-            <section id="news" class="text-center container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-8 mx-auto">
-                        <h1 class="fw-light" style="color: white;">Weather News & Analysis</h1>
-                    </div>
-                </div>
-            </section>
-            <div class="album">
-                <div class="container">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <img class="bd-placeholder-img card-img-top"
-                                    src="https://www.skymetweather.com/content/wp-content/uploads/2020/01/Climate-Change.jpg"
-                                    alt="news images">
-                                <div class="card-body">
-                                    <h4 class="news-headline">9 OUT OF 10 GLOBAL RISKS OF THE DECADE RELATED TO CLIMATE
-                                        CHANGE, WARNS WORLD ECONOMIC FORUM</h4>
-                                    <p class="card-text">
-                                        This year too is not going to be any different and will continue seeing warmer
-                                        temperatures. Before the event, the WEF releases a detailed report of those
-                                        risks, and climate change this time is the biggest concern since the forum’s
-                                        launch in 2006.
-                                    </p>
-                                    <p>
-                                        <a target="_blank" class="btn btn-dark"
-                                            href="https://www.skymetweather.com/content/climate-change/9-out-of-10-global-risks-of-the-decade-related-to-climate-change-warns-world-economic-forum/"
-                                            role="button">
-                                            Read full article</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <img class="bd-placeholder-img card-img-top"
-                                    src="https://www.skymetweather.com/content/wp-content/uploads/2020/11/Typhoon-Goni.jpg"
-                                    alt="news images">
-                                <div class="card-body">
-                                    <h4 class="news-headline">SUPER TYPHOON GONI STRIKES THE PHILIPPINES</h4>
-                                    <p class="card-text">The super typhoon Goni battered the Philippines on Sunday, 01
-                                        November with winds in excess of 250 kmph. The eyewall clouds and the inner
-                                        rainbands dumped copious rains flooding the central region.
-                                        The international airport was closed and about 10 Lakh people were evacuated.
-                                        <br><br>
-                                    </p>
-                                    <p>
-                                        <a target="_blank" class="btn btn-dark"
-                                            href="https://www.skymetweather.com/content/weather-news-and-analysis/super-typhoon-goni-strikes-the-philippines-weakens-to-a-tropical-storm-heads-for-vietnam/"
-                                            role="button">
-                                            Read full article</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <img class="bd-placeholder-img card-img-top"
-                                    src="https://www.skymetweather.com/content/wp-content/uploads/2020/02/Heat-wave-in-summers-website.jpg"
-                                    alt="news images">
-                                <div class="card-body">
-                                    <h4 class="news-headline">HEAT WAVE TO GET WORSE IN THE COMING DECADES</h4>
-                                    <p class="card-text">
-                                        A recent study has found out that the human-caused climate change results in
-                                        extreme heat during summer days leading to dangerous consequences. When the sun
-                                        sets, temperatures cool down and day turns into night, the threat to human
-                                        health aggravates.
-                                        <br><br>
-                                    </p>
-                                    <p>
-                                        <a target="_blank" class="btn btn-dark"
-                                            href="https://www.skymetweather.com/content/weather-news-and-analysis/study-heat-wave-to-get-worse-in-the-coming-decades/"
-                                            role="button">
-                                            Read full article</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-
-        <section id="map">
-            <div class="px-4 text-center">
-                <img src="https://img.icons8.com/emoji/256/null/world-map-emoji.png" />
-                <h1 class="display-5 fw-bold" style="color: white;">Weather Maps</h1>
-                <div class="col-lg-6 mx-auto">
-                    <p class="lead mb-4" style="color: gray;">
-                        The Weatherify allows for the illustration of the interdependence of the entire system,
-                        displaying the development of pressure, wind, cloud cover, precipitation, and temperature on the
-                        map.
-                    </p>
-                </div>
-            </div>
-            <div class="card card-body card-map">
-                <center> <iframe class="windmap" height="450"
-                        src="https://embed.windy.com/embed2.html?lat=17.425&lon=78.507&detailLat=17.425&detailLon=78.507&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
-                        frameborder="0"></iframe>
-                </center>
-            </div>
-    </article>
     </section>
 
-    <center>
-        <h1 class="text-white">FAQ's</h1>
-        <div class="accordion col-md-6 col-8" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        How far ahead can we predict the weather and climate these days?
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
+    <!-- News Section -->
+    <section id="news" class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Stay Informed</span>
+                <h2 class="section-title">Weather News & Analysis</h2>
+                <p class="section-subtitle">Latest updates on climate trends, weather phenomena, and environmental news
+                </p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card animate-on-scroll">
+                    <div class="news-image">
+                        <img src="https://www.skymetweather.com/content/wp-content/uploads/2020/01/Climate-Change.jpg"
+                            alt="Climate change visualization">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-tag">Climate</span>
+                        <h3 class="news-title">9 Out of 10 Global Risks Related to Climate Change, Warns WEF</h3>
+                        <p class="news-excerpt">This year continues seeing warmer temperatures as climate change remains
+                            the biggest concern since the World Economic Forum's launch in 2006.</p>
+                        <a href="https://www.skymetweather.com/content/climate-change/9-out-of-10-global-risks-of-the-decade-related-to-climate-change-warns-world-economic-forum/"
+                            target="_blank" class="news-link">
+                            Read Article <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="news-card animate-on-scroll">
+                    <div class="news-image">
+                        <img src="https://www.skymetweather.com/content/wp-content/uploads/2020/11/Typhoon-Goni.jpg"
+                            alt="Typhoon Goni satellite image">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-tag">Storms</span>
+                        <h3 class="news-title">Super Typhoon Goni Strikes the Philippines</h3>
+                        <p class="news-excerpt">The super typhoon battered the Philippines with winds exceeding 250
+                            kmph, causing mass evacuations and flooding in central regions.</p>
+                        <a href="https://www.skymetweather.com/content/weather-news-and-analysis/super-typhoon-goni-strikes-the-philippines-weakens-to-a-tropical-storm-heads-for-vietnam/"
+                            target="_blank" class="news-link">
+                            Read Article <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="news-card animate-on-scroll">
+                    <div class="news-image">
+                        <img src="https://www.skymetweather.com/content/wp-content/uploads/2020/02/Heat-wave-in-summers-website.jpg"
+                            alt="Heat wave illustration">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-tag">Research</span>
+                        <h3 class="news-title">Heat Waves to Get Worse in Coming Decades</h3>
+                        <p class="news-excerpt">Recent studies reveal human-caused climate change leads to extreme
+                            summer heat, with nighttime temperatures posing increased health risks.</p>
+                        <a href="https://www.skymetweather.com/content/weather-news-and-analysis/study-heat-wave-to-get-worse-in-the-coming-decades/"
+                            target="_blank" class="news-link">
+                            Read Article <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-                        A five-day weather forecast today is generally as reliable as a three-day forecast two decades
-                        ago.
-                        Outlooks of up to a week, especially in temperate mid-latitude regions are becoming increasingly
-                        reliable.
-                        Information can be disseminated around the world from one location to another within three
-                        hours, while
-                        recently understood phenomena such as El Niño Southern Oscillation (ENSO) (El Niño, La Niña and
-                        neutral
-                        phases) can be forecast up to a year in advance. Seasonal climate predictions can be forecast up
-                        to a
-                        month, three months or six months ahead although these climate predictions are probabilistic in
-                        nature.
-                        Such forecasts, often from more advanced centres, are made available globally to all nations.
-                    </div>
-                </div>
+    <!-- Map Section -->
+    <section id="map" class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Live View</span>
+                <h2 class="section-title">Interactive Weather Maps</h2>
+                <p class="section-subtitle">Explore real-time wind patterns, pressure systems, and weather conditions
+                    across the globe</p>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Why are weather forecasts sometimes inaccurate?
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        Air pressure, temperature, mountain ranges, ocean currents and many other factors combine to
-                        produce an
-                        enormous quantity of interacting variables all of which can alter the weather to a greater or
-                        lesser extent.
-                        However, greater understanding of the science, plus the use of powerful computer models,
-                        continue to improve
-                        our ability to make more accurate predictions with longer lead times.
-                    </div>
-                </div>
+            <div class="map-container">
+                <iframe title="Interactive weather map powered by Windy"
+                    src="https://embed.windy.com/embed2.html?lat=17.425&lon=78.507&detailLat=17.425&detailLon=78.507&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1">
+                </iframe>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Why is it that developing nations always seem to suffer most during extreme weather events?
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        Every year, natural disasters affect many communities around the world, leading to the loss of
-                        lives, the
-                        destruction of social and economic infrastructure and the degradation of already fragile
-                        ecosystems. Such
-                        hazards are inevitable and can threaten everyone, but they tend to hit communities in developing
-                        and least
-                        developed countries the hardest, increasing their vulnerability and setting back their economic
-                        and social
-                        goals, sometimes by decades.
-                        <br>
-                        While economic losses in dollars for developing countries are lower than those for developed
-                        countries,
-                        impact (as a percentage of GDP) is often much higher. Many developing nations lie in tropical
-                        zones where
-                        extreme weather events such as tropical cyclones, droughts and flooding are more frequent than
-                        in other
-                        regions. Developing nations possess limited facilities and qualified human resources to monitor
-                        and predict
-                        these phenomena and provide warnings to all sectors of the population. Addressing this challenge
-                        is a major
-                        concern for WMO.
-                    </div>
-                </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Got Questions?</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about weather forecasting</p>
             </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        Will we ever be able to control weather in the future?
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        Experiments on weather modification have been, and continue to be, carried out. The most
-                        prevalent method is
-                        cloud seeding, which dates back to 1946 and is the attempt to alter the amount or type of
-                        precipitation
-                        produced by clouds. This is done by targeting clouds from aircraft or from the ground with
-                        substances such
-                        as silver iodide, dry ice and even salt. In the 1950s and 1960s, US scientists experimented in
-                        modifying
-                        tropical cyclones (Project Stormfury) but the research was inconclusive.
-                        <br>
-                        Today, cloud seeding is employed in many countries in an effort to increase precipitation in
-                        drought-stricken areas, reduce the size of hailstones that form in thunderstorms, reduce fog
-                        around airports
-                        and even to provoke snow at major ski resorts. However, the impacts of operations in rainfall
-                        enhancement
-                        and hail suppression have still not been properly quantified and modification remains an area of
-                        active
-                        research.
+            <div class="faq-container">
+                <div class="accordion" id="accordionFAQ">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                How far ahead can we predict the weather?
+                            </button>
+                        </h3>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                A five-day weather forecast today is generally as reliable as a three-day forecast two
+                                decades ago. Outlooks of up to a week, especially in temperate mid-latitude regions, are
+                                becoming increasingly reliable. Seasonal climate predictions can be forecast up to six
+                                months ahead, though these are probabilistic in nature.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Why are weather forecasts sometimes inaccurate?
+                            </button>
+                        </h3>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                Air pressure, temperature, mountain ranges, ocean currents, and many other factors
+                                combine to produce an enormous quantity of interacting variables. However, greater
+                                understanding of the science, plus powerful computer models, continue to improve
+                                prediction accuracy with longer lead times.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Why do developing nations suffer most during extreme weather?
+                            </button>
+                        </h3>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                While economic losses in dollars for developing countries are lower than for developed
+                                countries, impact as a percentage of GDP is often much higher. Many developing nations
+                                lie in tropical zones where extreme weather events are more frequent, and possess
+                                limited facilities to monitor and predict these phenomena.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Will we ever be able to control the weather?
+                            </button>
+                        </h3>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                Weather modification experiments like cloud seeding have been conducted since 1946.
+                                Today, it's employed in many countries to increase precipitation in drought areas,
+                                reduce hail, and clear fog near airports. However, impacts remain difficult to quantify
+                                and weather modification continues to be an area of active research.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </center>
+    </section>
 
-    <!-- footer -->
-
-    <div class="container">
-        <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">News</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Blogs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Terms & Conditions</a></li>
-            </ul>
-            <center>
-                <div class="social">
-                    <a href=""><img src="https://img.icons8.com/windows/40/FFFFFF/instagram-new.png" /></a>
-                    <a href=""><img src="https://img.icons8.com/windows/40/FFFFFF/twitter.png" /></a>
-                    <a href=""><img src="https://img.icons8.com/windows/40/FFFFFF/facebook-new.png" /></a>
-                    <a href=""><img src="https://img.icons8.com/windows/40/FFFFFF/youtube-play.png" /></a>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Weatherify</h3>
+                    <p>Your trusted source for accurate weather forecasts and climate information. Powering informed
+                        decisions with real-time data from around the globe.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">
+                            <img src="https://img.icons8.com/windows/40/FFFFFF/instagram-new.png" alt="Instagram">
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <img src="https://img.icons8.com/windows/40/FFFFFF/twitter.png" alt="Twitter">
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <img src="https://img.icons8.com/windows/40/FFFFFF/facebook-new.png" alt="Facebook">
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <img src="https://img.icons8.com/windows/40/FFFFFF/youtube-play.png" alt="YouTube">
+                        </a>
+                    </div>
                 </div>
-                <br>
-                <p class="text-center text-muted">© 2023 Weatherify</p>
-            </center>
-        </footer>
-    </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#top">Home</a></li>
+                        <li><a href="#weather">Weather</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#map">Maps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#map">Weather Maps</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Weatherify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="topBtn" class="scroll-top" onclick="toTop()" aria-label="Scroll to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
+    <script src="script.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
 </body>
 
