@@ -166,15 +166,24 @@ body {
 
 /* Mobile Dropdown Menu */
 @media (max-width: 991px) {
+    .navbar>.container {
+        position: relative;
+    }
+
     .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 16px;
+        right: 16px;
         background: rgba(15, 15, 15, 0.98);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-radius: var(--radius-lg);
-        margin-top: 16px;
+        margin-top: 8px;
         padding: 20px;
         border: 1px solid var(--glass-border);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        z-index: 1000;
     }
 
     .navbar-nav {
