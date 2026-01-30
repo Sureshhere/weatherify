@@ -1,34 +1,25 @@
-// ============================================
-// WEATHERIFY - JavaScript
-// Weather API, Animations & Interactions
-// ============================================
-
-// Weather API Configuration
+// Weather object - handles all the weather stuff
 const weather = {
-    apikey: '673d0c9312adf317d04cd672ae9a9b3d',
-    
+    // gets weather data from our api
     fetchWeather: function(city) {
         const weatherDisplay = document.querySelector('.weather-display');
         if (weatherDisplay) {
             weatherDisplay.classList.add('loading');
         }
         
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${this.apikey}`)
+        fetch(`/api/weather?city=${encodeURIComponent(city)}`)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('City not found');
-                }
+                if (!response.ok) throw new Error('City not found');
                 return response.json();
             })
             .then(data => this.displayWeather(data))
             .catch(error => {
                 console.error('Weather fetch error:', error);
-                if (weatherDisplay) {
-                    weatherDisplay.classList.remove('loading');
-                }
+                if (weatherDisplay) weatherDisplay.classList.remove('loading');
             });
     },
     
+    // puts all the weather data on the page
     displayWeather: function(data) {
         const { name, coord } = data;
         const { icon, description } = data.weather[0];
@@ -38,7 +29,7 @@ const weather = {
         const { all: cloudiness } = data.clouds;
         const { sunrise, sunset } = data.sys;
         
-        // Update main weather card
+        // main card stuff
         const cityEl = document.querySelector('.city');
         const iconEl = document.querySelector('.icon');
         const descEl = document.querySelector('.description');
@@ -55,7 +46,7 @@ const weather = {
         if (windEl) windEl.innerText = `${speed} km/h`;
         if (weatherDisplay) weatherDisplay.classList.remove('loading');
         
-        // Update extra weather panel
+        // extra details panel
         const feelsLikeEl = document.querySelector('.feels-like');
         const pressureEl = document.querySelector('.pressure');
         const visibilityEl = document.querySelector('.visibility');
@@ -68,7 +59,7 @@ const weather = {
         if (visibilityEl) visibilityEl.innerText = `${(visibility / 1000).toFixed(1)} km`;
         if (cloudinessEl) cloudinessEl.innerText = `${cloudiness}%`;
         
-        // Format sunrise and sunset times
+        // converting unix time to readable time
         if (sunriseEl) {
             const sunriseDate = new Date(sunrise * 1000);
             sunriseEl.innerText = sunriseDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
@@ -78,12 +69,13 @@ const weather = {
             sunsetEl.innerText = sunsetDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
         }
         
-        // Fetch Air Quality data
+        // also grab air quality
         this.fetchAirQuality(coord.lat, coord.lon);
     },
     
+    // gets air quality data using lat/lon
     fetchAirQuality: function(lat, lon) {
-        fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${this.apikey}`)
+        fetch(`/api/airquality?lat=${lat}&lon=${lon}`)
             .then(response => response.json())
             .then(data => {
                 const aqi = data.list[0].main.aqi;
@@ -92,17 +84,16 @@ const weather = {
                 const aqiEl = document.querySelector('.aqi');
                 const pm25El = document.querySelector('.pm25');
                 
-                // AQI Labels: 1=Good, 2=Fair, 3=Moderate, 4=Poor, 5=Very Poor
+                // 1=good, 5=very poor
                 const aqiLabels = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
                 
                 if (aqiEl) aqiEl.innerText = aqiLabels[aqi - 1] || '--';
                 if (pm25El) pm25El.innerText = `${pm25.toFixed(1)} µg/m³`;
             })
-            .catch(error => {
-                console.error('Air quality fetch error:', error);
-            });
+            .catch(error => console.error('Air quality fetch error:', error));
     },
     
+    // handles the search button click
     search: function() {
         const searchInput = document.querySelector('.searchbar_2');
         if (searchInput && searchInput.value.trim()) {
@@ -111,30 +102,24 @@ const weather = {
     }
 };
 
-// Event Listeners for Weather Search
+// search button & enter key listeners
 document.addEventListener('DOMContentLoaded', function() {
     const searchBtn = document.querySelector('.searchBTN');
     const searchInput = document.querySelector('.searchbar_2');
     
-    if (searchBtn) {
-        searchBtn.addEventListener('click', () => weather.search());
-    }
+    if (searchBtn) searchBtn.addEventListener('click', () => weather.search());
     
     if (searchInput) {
         searchInput.addEventListener('keyup', (event) => {
-            if (event.key === 'Enter') {
-                weather.search();
-            }
+            if (event.key === 'Enter') weather.search();
         });
     }
     
-    // Fetch default weather
+    // load delhi weather by default
     weather.fetchWeather('Delhi');
 });
 
-// ============================================
-// SNOW ANIMATION
-// ============================================
+// snowfall effect - makes it look cool
 const Snow = {
     el: '#snow',
     density: 10000,
@@ -157,6 +142,7 @@ const Snow = {
         window.addEventListener('resize', this.reset.bind(this));
     },
     
+    // creates snow particles
     reset() {
         this.w = window.innerWidth;
         this.h = window.innerHeight;
@@ -180,6 +166,7 @@ const Snow = {
         }
     },
     
+    // animates the snowfall
     render() {
         this.ctx.clearRect(0, 0, this.w, this.h);
         
@@ -187,22 +174,19 @@ const Snow = {
             p.y += p.vy;
             p.x += p.vx;
             
-            // Create gradient for each particle
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.w, 0, Math.PI * 2);
             this.ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
             this.ctx.fill();
             
-            // Reset particle if out of bounds
+            // reset if goes off screen
             if (p.x > this.w + 5 || p.x < -5 || p.y > this.h) {
                 p.x = Math.random() * this.w;
                 p.y = -10;
             }
         });
         
-        if (!this.quit) {
-            requestAnimationFrame(this.render.bind(this));
-        }
+        if (!this.quit) requestAnimationFrame(this.render.bind(this));
     },
     
     destroy() {
@@ -210,59 +194,35 @@ const Snow = {
     }
 };
 
-// Initialize snow animation
 Snow.init();
 
-// ============================================
-// SCROLL TO TOP BUTTON
-// ============================================
+// scroll to top button
 const scrollTopBtn = document.getElementById('topBtn');
 
 window.addEventListener('scroll', function() {
     if (scrollTopBtn) {
-        if (window.scrollY > 300) {
-            scrollTopBtn.style.display = 'flex';
-        } else {
-            scrollTopBtn.style.display = 'none';
-        }
+        scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
     }
 });
 
 function toTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ============================================
-// SCROLL ANIMATIONS (Intersection Observer)
-// ============================================
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
+// fade-in animation when elements come into view
+const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Optionally unobserve after animation
-            // observer.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
     });
 }, observerOptions);
 
-// Observe all elements with animate-on-scroll class
 document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    animatedElements.forEach(el => observer.observe(el));
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 });
 
-// ============================================
-// NAVBAR SCROLL EFFECT
-// ============================================
+// navbar gets darker when you scroll
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (navbar) {
@@ -276,9 +236,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// ============================================
-// SMOOTH SCROLL FOR ANCHOR LINKS
-// ============================================
+// smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
@@ -288,19 +246,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (targetElement) {
             e.preventDefault();
             const navHeight = document.querySelector('.navbar')?.offsetHeight || 0;
-            const targetPosition = targetElement.offsetTop - navHeight;
-            
             window.scrollTo({
-                top: targetPosition,
+                top: targetElement.offsetTop - navHeight,
                 behavior: 'smooth'
             });
         }
     });
 });
 
-// ============================================
-// ACTIVE NAV LINK HIGHLIGHTING
-// ============================================
+// highlights current section in navbar
 window.addEventListener('scroll', function() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -310,15 +264,11 @@ window.addEventListener('scroll', function() {
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop - navHeight - 100;
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute('id');
-        }
+        if (window.scrollY >= sectionTop) current = section.getAttribute('id');
     });
     
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
+        if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
     });
 });
